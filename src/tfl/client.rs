@@ -7,6 +7,7 @@ use std::fs;
 use std::io::{Read, Write};
 use std::path::Path;
 use std::sync::Arc;
+use std::{thread, time};
 
 use tfl::line::{Line, TimeTableResponse, Sequence, Stop};
 
@@ -37,6 +38,9 @@ impl Client {
     }
 
     fn get(&self, endpoint : &str) -> String {
+        let ten_millis = time::Duration::from_millis(1000);
+        thread::sleep(ten_millis);
+
         match self.cache_get(endpoint) {
             Some(body) => body,
             None => self.remote_get(endpoint)
