@@ -32,7 +32,7 @@ impl Client {
         Client {
             client : Arc::new(hyper::Client::new()),
             app_id : String::new(),
-            app_key : String::new("ea122899bca146f3a8be62789aabc563"),
+            app_key : String::from("ea122899bca146f3a8be62789aabc563"),
             cache_dir : String::from("./cache"),
         }
     }
