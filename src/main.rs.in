@@ -49,7 +49,7 @@ fn main() {
 
     if let Some(ref matches) = matches.subcommand_matches("fetch-lines") {
         let format = value_t!(matches, "format", OutputFormat).unwrap_or(OutputFormat::None);
-        let thread_number = value_t!(matches, "threads", u32).unwrap_or(1);
+        let thread_number = value_t!(matches, "threads", u32).unwrap_or(5);
         let sample_size = value_t!(matches, "sample", usize).ok();
         cmd::fetch_lines(format, thread_number, sample_size);
     }
